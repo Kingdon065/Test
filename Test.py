@@ -3,3 +3,4 @@
 
 import subprocess
 
+try:
