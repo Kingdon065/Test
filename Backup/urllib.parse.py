@@ -1,4 +1,4 @@
-#! python3
+#!/usr/bin/python3
 
 from urllib.parse import urlparse, urlunparse, urlsplit
 from urllib.parse import urlunsplit, urlencode, parse_qs
