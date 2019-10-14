@@ -16,3 +16,4 @@ for ip in ADDRESSES:
     print('  is private:', addr.is_private)
     print(' packed form:', binascii.hexlify(addr.packed))
     print('     integer:', int(addr))
+
