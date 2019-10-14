@@ -1,21 +1,19 @@
-#!/usr/bin/python3
+#! python3
 # _*_ coding: utf-8 _*_
 
-import subprocess
+import binascii
+import ipaddress
 
-try:
-    completed = subprocess.run(
-        'echo to stdout; echo to stderr 1>&2; exit 1',
-        check=True,
-        shell=True,
-        stdout=subprocess.PIPE,
+ADDRESSES = [
+    '192.168.0.105',
+    'fe80::d5e7:c867:dab0:9b95'
+]
 
-    )
-except subprocess.CalledProcessError as err:
-    print(f'ERROR: {err}')
-else:
-    print(f'returnCode: {completed.returncode}')
-    print('Have {} bytes in stdout: {!r}'.format(
-        len(completed.stdout),
-        completed.stdout.decode('utf-8')
-    ))
+for ip in ADDRESSES:
+    addr = ipaddress.ip_address(ip)
+    print('{!r}'.format(addr))
+    print('  IP version:', addr.version)
+    print('  is private:', addr.is_private)
+    print(' packed form:', binascii.hexlify(addr.packed))
+    print('     integer:', int(addr))
+

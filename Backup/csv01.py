@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#! python3
 
 from pandas import read_csv
 
@@ -15,7 +15,7 @@ data = [{
 
 with open('data.csv', 'a', newline='') as csvfile:
     fieldnames = ['name', 'gender', 'birthday']
-    writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+    writer = read_csv.DictWriter(csvfile, fieldnames=fieldnames)
     #writer.writeheader()
     writer.writerows(data)
 
